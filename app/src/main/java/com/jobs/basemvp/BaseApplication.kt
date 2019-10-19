@@ -18,8 +18,9 @@ class BaseApplication: Application() {
             return instance!!.applicationContext
         }
 
-        val apiClient: ApiClient
-            get() = ApiClient(applicationContext())
+        val apiClient: ApiClient by lazy {
+            ApiClient(applicationContext())
+        }
     }
 
     override fun onCreate() {

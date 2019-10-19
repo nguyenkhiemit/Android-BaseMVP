@@ -1,7 +1,8 @@
-package com.jobs.basemvp
+package com.jobs.basemvp.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jobs.basemvp.R
 
 class MainActivity : AppCompatActivity() {
 

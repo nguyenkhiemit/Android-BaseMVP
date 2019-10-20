@@ -23,14 +23,6 @@ class BaseApplication: Application() {
         val apiClient: ApiClient by lazy {
             ApiClient()
         }
-
-        val loadingDialog: LoadingDialog by lazy {
-            LoadingDialog(applicationContext())
-        }
-
-        val snackBar: SnackBar by lazy {
-            SnackBar()
-        }
     }
 
 }

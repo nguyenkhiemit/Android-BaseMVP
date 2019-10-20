@@ -29,7 +29,6 @@ class LoginFragment: BaseFragment(), LoginView {
             val userName = userNameEditText.text.toString()
             val password = passwordEditText.text.toString()
             val request = LoginRequest(userName, password)
-            BaseApplication.loadingDialog.show()
             presenter.login(request)
         }
         return view
@@ -37,25 +36,25 @@ class LoginFragment: BaseFragment(), LoginView {
 
     override fun validateMessage(errorCode: Int) {
         when(errorCode) {
-            Constants.USER_NAME_EMPTY -> BaseApplication.snackBar.show(view!!, getString(R.string.user_name_not_empty), false)
-            Constants.PASSWORD_ERROR -> BaseApplication.snackBar.show(view!!, getString(R.string.password_not_empty), false)
+            Constants.USER_NAME_EMPTY -> snackBar.show(view!!, getString(R.string.user_name_not_empty), false)
+            Constants.PASSWORD_ERROR -> snackBar.show(view!!, getString(R.string.password_not_empty), false)
         }
     }
 
     override fun loginSuccess(response: LoginData?) {
-        BaseApplication.snackBar.show(view!!, getString(R.string.login_success), true)
+        snackBar.show(view!!, getString(R.string.login_success), true)
     }
 
     override fun loginFailure(message: String?) {
-        BaseApplication.snackBar.show(view!!, getString(R.string.login_failure), false)
+        snackBar.show(view!!, getString(R.string.login_failure), false)
     }
 
     override fun showLoading() {
-//        BaseApplication.loadingDialog.show()
+        loadingDialog.show()
     }
 
     override fun hideLoading() {
-//        BaseApplication.loadingDialog.hide()
+        loadingDialog.hide()
     }
 
     override fun onDestroy() {

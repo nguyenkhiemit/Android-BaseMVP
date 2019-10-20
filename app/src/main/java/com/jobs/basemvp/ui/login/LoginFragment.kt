@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jobs.basemvp.BaseApplication
 import com.jobs.basemvp.R
 import com.jobs.basemvp.data.model.requests.LoginRequest
 import com.jobs.basemvp.data.model.response.LoginData

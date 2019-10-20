@@ -20,7 +20,7 @@ class LoginPresenter: BasePresenter<LoginView>() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
                         getView()?.hideLoading()
-                        if(it.status != null && it.status) {
+                        if(it.status != null && it.status == 200) {
                             getView()?.loginSuccess(it.data)
                         } else {
                             getView()?.loginFailure(it.message)

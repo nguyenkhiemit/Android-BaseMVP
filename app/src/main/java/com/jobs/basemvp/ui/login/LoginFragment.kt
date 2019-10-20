@@ -22,10 +22,14 @@ class LoginFragment: BaseFragment(), LoginView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
         presenter.onAttach(this)
+        view.userNameEditText.setText("10001")
+        view.passwordEditText.setText("123456")
+
         view.loginButton.setOnClickListener {
             val userName = userNameEditText.text.toString()
             val password = passwordEditText.text.toString()
             val request = LoginRequest(userName, password)
+            BaseApplication.loadingDialog.show()
             presenter.login(request)
         }
         return view
@@ -39,19 +43,19 @@ class LoginFragment: BaseFragment(), LoginView {
     }
 
     override fun loginSuccess(response: LoginData?) {
-
+        BaseApplication.snackBar.show(view!!, getString(R.string.login_success), true)
     }
 
     override fun loginFailure(message: String?) {
-
+        BaseApplication.snackBar.show(view!!, getString(R.string.login_failure), false)
     }
 
     override fun showLoading() {
-        BaseApplication.loadingDialog.show()
+//        BaseApplication.loadingDialog.show()
     }
 
     override fun hideLoading() {
-        BaseApplication.loadingDialog.hide()
+//        BaseApplication.loadingDialog.hide()
     }
 
     override fun onDestroy() {

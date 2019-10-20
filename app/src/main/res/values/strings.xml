@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">BaseMVP</string>
 
+    <!-- login -->
     <string name="user_name_not_empty">Tên đăng nhập không được để trống</string>
     <string name="password_not_empty">Mật khẩu không đúng</string>
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="login_failure">Đăng nhập thất bại</string>
 </resources>

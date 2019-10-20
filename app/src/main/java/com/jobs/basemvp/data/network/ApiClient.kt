@@ -1,20 +1,19 @@
 package com.jobs.basemvp.data.network
 
-import android.content.Context
 import com.jobs.basemvp.BaseApplication
-import com.jobs.basemvp.data.prefs.PrefsUtils
+import com.jobs.basemvp.data.services.ApiService
 import com.jobs.basemvp.utils.Constants
-
-import java.util.concurrent.TimeUnit
-
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
-class ApiClient(private val context: Context) {
+class ApiClient {
+
+    val service: ApiService
+        get() = client.create(ApiService::class.java)
 
     val client: Retrofit
         get() = Retrofit.Builder()

@@ -6,17 +6,23 @@ import com.google.gson.annotations.SerializedName
 data class LoginResponse(
     @Expose
     @SerializedName("success")
-    var status: Boolean? = false,
+    val status: Boolean? = false,
 
     @Expose
     @SerializedName("message")
-    var message: String? = null,
+    val message: String? = null,
 
     @Expose
+    @SerializedName("data")
+    val data: LoginData? = null
+)
+
+data class LoginData(
+    @Expose
     @SerializedName("user_name")
-    var userName: String? = null,
+    val userName: String? = null,
 
     @Expose
     @SerializedName("email")
-    var email: String? = null
+    val email: String? = null
 )

@@ -3,6 +3,8 @@ package com.jobs.basemvp
 import android.app.Application
 import android.content.Context
 import com.jobs.basemvp.data.network.ApiClient
+import com.jobs.basemvp.ui.view.LoadingDialog
+import com.jobs.basemvp.ui.view.SnackBar
 
 class BaseApplication: Application() {
 
@@ -19,7 +21,15 @@ class BaseApplication: Application() {
         }
 
         val apiClient: ApiClient by lazy {
-            ApiClient(applicationContext())
+            ApiClient()
+        }
+
+        val loadingDialog: LoadingDialog by lazy {
+            LoadingDialog(applicationContext())
+        }
+
+        val snackBar: SnackBar by lazy {
+            SnackBar()
         }
     }
 

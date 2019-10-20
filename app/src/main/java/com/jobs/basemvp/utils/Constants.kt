@@ -8,4 +8,7 @@ object Constants {
 
     internal val BEARER = "Bearer"
 
+    internal val USER_NAME_EMPTY = 1000
+
+    internal val PASSWORD_ERROR = 1001
 }
